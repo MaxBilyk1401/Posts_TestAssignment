@@ -9,21 +9,28 @@
 /* Begin PBXBuildFile section */
 		9D5E77812A9FA61200286D13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77802A9FA61200286D13 /* AppDelegate.swift */; };
 		9D5E77832A9FA61200286D13 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77822A9FA61200286D13 /* SceneDelegate.swift */; };
-		9D5E77852A9FA61200286D13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77842A9FA61200286D13 /* ViewController.swift */; };
-		9D5E77882A9FA61200286D13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E77862A9FA61200286D13 /* Main.storyboard */; };
 		9D5E778A2A9FA61400286D13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E77892A9FA61400286D13 /* Assets.xcassets */; };
 		9D5E778D2A9FA61400286D13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D5E778B2A9FA61400286D13 /* LaunchScreen.storyboard */; };
+		9D5E77962A9FC26400286D13 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9D5E77952A9FC26400286D13 /* SnapKit */; };
+		9D5E77992A9FC2A400286D13 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9D5E77982A9FC2A400286D13 /* Kingfisher */; };
+		9D5E779C2A9FC2C100286D13 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 9D5E779B2A9FC2C100286D13 /* Moya */; };
+		9D5E779E2A9FC43F00286D13 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E779D2A9FC43F00286D13 /* Router.swift */; };
+		9D5E77A32A9FC4EB00286D13 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77A22A9FC4EB00286D13 /* PostsViewModel.swift */; };
+		9D5E77A52A9FC4FA00286D13 /* PostsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77A42A9FC4FA00286D13 /* PostsUIComposer.swift */; };
+		9D5E77A72A9FC53800286D13 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77A62A9FC53800286D13 /* PostsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9D5E777D2A9FA61200286D13 /* Posts_TestAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Posts_TestAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D5E77802A9FA61200286D13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D5E77822A9FA61200286D13 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9D5E77842A9FA61200286D13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9D5E77872A9FA61200286D13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D5E77892A9FA61400286D13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D5E778C2A9FA61400286D13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D5E778E2A9FA61400286D13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D5E779D2A9FC43F00286D13 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		9D5E77A22A9FC4EB00286D13 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
+		9D5E77A42A9FC4FA00286D13 /* PostsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsUIComposer.swift; sourceTree = "<group>"; };
+		9D5E77A62A9FC53800286D13 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +38,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D5E77992A9FC2A400286D13 /* Kingfisher in Frameworks */,
+				9D5E77962A9FC26400286D13 /* SnapKit in Frameworks */,
+				9D5E779C2A9FC2C100286D13 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,13 +68,39 @@
 			children = (
 				9D5E77802A9FA61200286D13 /* AppDelegate.swift */,
 				9D5E77822A9FA61200286D13 /* SceneDelegate.swift */,
-				9D5E77842A9FA61200286D13 /* ViewController.swift */,
-				9D5E77862A9FA61200286D13 /* Main.storyboard */,
+				9D5E779D2A9FC43F00286D13 /* Router.swift */,
+				9D5E77A02A9FC49D00286D13 /* Services */,
+				9D5E779F2A9FC49200286D13 /* Views */,
 				9D5E77892A9FA61400286D13 /* Assets.xcassets */,
 				9D5E778B2A9FA61400286D13 /* LaunchScreen.storyboard */,
 				9D5E778E2A9FA61400286D13 /* Info.plist */,
 			);
 			path = Posts_TestAssignment;
+			sourceTree = "<group>";
+		};
+		9D5E779F2A9FC49200286D13 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9D5E77A12A9FC4D400286D13 /* PostsViewController */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9D5E77A02A9FC49D00286D13 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9D5E77A12A9FC4D400286D13 /* PostsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D5E77A22A9FC4EB00286D13 /* PostsViewModel.swift */,
+				9D5E77A62A9FC53800286D13 /* PostsViewController.swift */,
+				9D5E77A42A9FC4FA00286D13 /* PostsUIComposer.swift */,
+			);
+			path = PostsViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +119,11 @@
 			dependencies = (
 			);
 			name = Posts_TestAssignment;
+			packageProductDependencies = (
+				9D5E77952A9FC26400286D13 /* SnapKit */,
+				9D5E77982A9FC2A400286D13 /* Kingfisher */,
+				9D5E779B2A9FC2C100286D13 /* Moya */,
+			);
 			productName = Posts_TestAssignment;
 			productReference = 9D5E777D2A9FA61200286D13 /* Posts_TestAssignment.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +152,11 @@
 				Base,
 			);
 			mainGroup = 9D5E77742A9FA61200286D13;
+			packageReferences = (
+				9D5E77942A9FC26400286D13 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				9D5E77972A9FC2A400286D13 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				9D5E779A2A9FC2C100286D13 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = 9D5E777E2A9FA61200286D13 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +173,6 @@
 			files = (
 				9D5E778D2A9FA61400286D13 /* LaunchScreen.storyboard in Resources */,
 				9D5E778A2A9FA61400286D13 /* Assets.xcassets in Resources */,
-				9D5E77882A9FA61200286D13 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +183,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D5E77852A9FA61200286D13 /* ViewController.swift in Sources */,
+				9D5E77A72A9FC53800286D13 /* PostsViewController.swift in Sources */,
+				9D5E779E2A9FC43F00286D13 /* Router.swift in Sources */,
+				9D5E77A32A9FC4EB00286D13 /* PostsViewModel.swift in Sources */,
+				9D5E77A52A9FC4FA00286D13 /* PostsUIComposer.swift in Sources */,
 				9D5E77812A9FA61200286D13 /* AppDelegate.swift in Sources */,
 				9D5E77832A9FA61200286D13 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +195,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9D5E77862A9FA61200286D13 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9D5E77872A9FA61200286D13 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9D5E778B2A9FA61400286D13 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +256,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -292,9 +332,10 @@
 				INFOPLIST_FILE = Posts_TestAssignment/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +361,10 @@
 				INFOPLIST_FILE = Posts_TestAssignment/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,6 +400,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9D5E77942A9FC26400286D13 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		9D5E77972A9FC2A400286D13 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		9D5E779A2A9FC2C100286D13 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9D5E77952A9FC26400286D13 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D5E77942A9FC26400286D13 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		9D5E77982A9FC2A400286D13 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D5E77972A9FC2A400286D13 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		9D5E779B2A9FC2C100286D13 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D5E779A2A9FC2C100286D13 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9D5E77752A9FA61200286D13 /* Project object */;
 }
