@@ -10,6 +10,7 @@ import UIKit
 final class PostsViewController: UIViewController {
     private var router: Router
     private var viewModel: PostsViewModel
+    private var network = NetworkPostsService()
     
     init(router: Router, viewModel: PostsViewModel) {
         self.router = router
@@ -24,5 +25,9 @@ final class PostsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
+        title = "posts"
+        network.loadData { [self] result in
+            print(result)
+        }
     }
 }

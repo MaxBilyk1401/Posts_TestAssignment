@@ -18,6 +18,11 @@
 		9D5E77A32A9FC4EB00286D13 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77A22A9FC4EB00286D13 /* PostsViewModel.swift */; };
 		9D5E77A52A9FC4FA00286D13 /* PostsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77A42A9FC4FA00286D13 /* PostsUIComposer.swift */; };
 		9D5E77A72A9FC53800286D13 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77A62A9FC53800286D13 /* PostsViewController.swift */; };
+		9D5E77A92A9FD2D800286D13 /* LoadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77A82A9FD2D800286D13 /* LoadService.swift */; };
+		9D5E77AC2A9FDCB900286D13 /* NetworkPostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77AB2A9FDCB900286D13 /* NetworkPostsService.swift */; };
+		9D5E77AE2A9FDCD000286D13 /* PostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77AD2A9FDCD000286D13 /* PostsService.swift */; };
+		9D5E77B02A9FDCEB00286D13 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77AF2A9FDCEB00286D13 /* PostModel.swift */; };
+		9D5E77B22A9FE08800286D13 /* NetworkPostsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77B12A9FE08800286D13 /* NetworkPostsResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +36,11 @@
 		9D5E77A22A9FC4EB00286D13 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
 		9D5E77A42A9FC4FA00286D13 /* PostsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsUIComposer.swift; sourceTree = "<group>"; };
 		9D5E77A62A9FC53800286D13 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
+		9D5E77A82A9FD2D800286D13 /* LoadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadService.swift; sourceTree = "<group>"; };
+		9D5E77AB2A9FDCB900286D13 /* NetworkPostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPostsService.swift; sourceTree = "<group>"; };
+		9D5E77AD2A9FDCD000286D13 /* PostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
+		9D5E77AF2A9FDCEB00286D13 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		9D5E77B12A9FE08800286D13 /* NetworkPostsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPostsResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +99,8 @@
 		9D5E77A02A9FC49D00286D13 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9D5E77A82A9FD2D800286D13 /* LoadService.swift */,
+				9D5E77AA2A9FDC9400286D13 /* NetworkPostsService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -101,6 +113,17 @@
 				9D5E77A42A9FC4FA00286D13 /* PostsUIComposer.swift */,
 			);
 			path = PostsViewController;
+			sourceTree = "<group>";
+		};
+		9D5E77AA2A9FDC9400286D13 /* NetworkPostsService */ = {
+			isa = PBXGroup;
+			children = (
+				9D5E77AB2A9FDCB900286D13 /* NetworkPostsService.swift */,
+				9D5E77AD2A9FDCD000286D13 /* PostsService.swift */,
+				9D5E77AF2A9FDCEB00286D13 /* PostModel.swift */,
+				9D5E77B12A9FE08800286D13 /* NetworkPostsResponse.swift */,
+			);
+			path = NetworkPostsService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,11 +206,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D5E77AC2A9FDCB900286D13 /* NetworkPostsService.swift in Sources */,
 				9D5E77A72A9FC53800286D13 /* PostsViewController.swift in Sources */,
+				9D5E77AE2A9FDCD000286D13 /* PostsService.swift in Sources */,
+				9D5E77B02A9FDCEB00286D13 /* PostModel.swift in Sources */,
 				9D5E779E2A9FC43F00286D13 /* Router.swift in Sources */,
 				9D5E77A32A9FC4EB00286D13 /* PostsViewModel.swift in Sources */,
+				9D5E77B22A9FE08800286D13 /* NetworkPostsResponse.swift in Sources */,
 				9D5E77A52A9FC4FA00286D13 /* PostsUIComposer.swift in Sources */,
 				9D5E77812A9FA61200286D13 /* AppDelegate.swift in Sources */,
+				9D5E77A92A9FD2D800286D13 /* LoadService.swift in Sources */,
 				9D5E77832A9FA61200286D13 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
