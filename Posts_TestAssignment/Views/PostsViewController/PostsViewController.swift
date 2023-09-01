@@ -13,6 +13,8 @@ final class PostsViewController: UIViewController {
     private var router: Router
     private var viewModel: PostsViewModel!
     private var network = NetworkPostsService()
+    var openedTableCellList = Set<UUID>()
+    private let maximumHeight: CGFloat = 36.0
     
     var postsTableView: UITableView = {
         let tableView = UITableView()
@@ -84,6 +86,8 @@ final class PostsViewController: UIViewController {
         postsTableView.dataSource = self
         postsTableView.delegate = self
         postsTableView.register(PostsTableViewCell.self, forCellReuseIdentifier: PostsTableViewCell.identifier)
+        postsTableView.rowHeight = UITableView.automaticDimension
+        postsTableView.estimatedRowHeight = 38.0
         
         let controll = UIRefreshControl()
         controll.addTarget(self, action: #selector(onPostsLoading), for: .valueChanged)
@@ -104,11 +108,56 @@ extension PostsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let list = list[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: PostsTableViewCell.identifier, for: indexPath) as! PostsTableViewCell
-        cell.setup(list)
+        
+        let previewLabelSize = list.previewText.height(withConstrainedWidth: tableView.frame.width - 32, font: .systemFont(ofSize: 16, weight: .regular))
+        
+        let canBeExpanded = previewLabelSize >= maximumHeight
+        let isExpanded = openedTableCellList.contains(list.id)
+        
+        cell.setup(list, canBeExpanded: canBeExpanded, isExpanded: isExpanded)
+        
+        cell.onButtonClick = { [weak self] in
+            guard let self else { return }
+            
+            if self.openedTableCellList.contains(list.id) {
+                self.openedTableCellList.remove(list.id)
+            } else {
+                self.openedTableCellList.insert(list.id)
+            }
+            
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+        
+        cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let list = list[indexPath.row]
+        
+        let previewLabelSize = list.previewText.height(withConstrainedWidth: tableView.frame.width - 32, font: .systemFont(ofSize: 16, weight: .regular))
+        
+        let canBeExpanded = previewLabelSize >= maximumHeight
+        let isExpanded = openedTableCellList.contains(list.id)
+        
+        let staticHeight: CGFloat = 4 + 8 + 8 + 8 + 8
+        let titleHeight: CGFloat = 48
+        let buttomHeight: CGFloat =  24
+        
+        if canBeExpanded {
+            if isExpanded {
+                return titleHeight + previewLabelSize + buttomHeight + staticHeight
+            } else {
+                return titleHeight + maximumHeight + buttomHeight + staticHeight
+            }
+        } else {
+            return titleHeight + previewLabelSize + staticHeight
+        }
     }
 }
 
 extension PostsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
 }

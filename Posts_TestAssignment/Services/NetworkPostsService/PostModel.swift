@@ -8,6 +8,7 @@
 import Foundation
 
 struct PostModel: Decodable {
+    let id = UUID()
     let postId: Int
     let timeshamp: Date
     let title: String
