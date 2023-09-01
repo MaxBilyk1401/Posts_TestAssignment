@@ -23,6 +23,12 @@
 		9D5E77AE2A9FDCD000286D13 /* PostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77AD2A9FDCD000286D13 /* PostsService.swift */; };
 		9D5E77B02A9FDCEB00286D13 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77AF2A9FDCEB00286D13 /* PostModel.swift */; };
 		9D5E77B22A9FE08800286D13 /* NetworkPostsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77B12A9FE08800286D13 /* NetworkPostsResponse.swift */; };
+		9DD119A82AA1E76500E224EB /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119A72AA1E76500E224EB /* PostsTableViewCell.swift */; };
+		9DD119AC2AA1E7D100E224EB /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119AB2AA1E7D100E224EB /* UITableViewCell+Extension.swift */; };
+		9DD119AE2AA1E7F200E224EB /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119AD2AA1E7F200E224EB /* UIImage+Extension.swift */; };
+		9DD119B02AA1E80A00E224EB /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119AF2AA1E80A00E224EB /* UIColor+Extension.swift */; };
+		9DD119B22AA1EB2700E224EB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119B12AA1EB2700E224EB /* Colors.swift */; };
+		9DD119B42AA1EBDA00E224EB /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119B32AA1EBDA00E224EB /* Images.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +47,12 @@
 		9D5E77AD2A9FDCD000286D13 /* PostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
 		9D5E77AF2A9FDCEB00286D13 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		9D5E77B12A9FE08800286D13 /* NetworkPostsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPostsResponse.swift; sourceTree = "<group>"; };
+		9DD119A72AA1E76500E224EB /* PostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewCell.swift; sourceTree = "<group>"; };
+		9DD119AB2AA1E7D100E224EB /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		9DD119AD2AA1E7F200E224EB /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		9DD119AF2AA1E80A00E224EB /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		9DD119B12AA1EB2700E224EB /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		9DD119B32AA1EBDA00E224EB /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +93,7 @@
 				9D5E779D2A9FC43F00286D13 /* Router.swift */,
 				9D5E77A02A9FC49D00286D13 /* Services */,
 				9D5E779F2A9FC49200286D13 /* Views */,
+				9DD119A92AA1E77400E224EB /* Helpers */,
 				9D5E77892A9FA61400286D13 /* Assets.xcassets */,
 				9D5E778B2A9FA61400286D13 /* LaunchScreen.storyboard */,
 				9D5E778E2A9FA61400286D13 /* Info.plist */,
@@ -110,6 +123,7 @@
 			children = (
 				9D5E77A22A9FC4EB00286D13 /* PostsViewModel.swift */,
 				9D5E77A62A9FC53800286D13 /* PostsViewController.swift */,
+				9DD119A72AA1E76500E224EB /* PostsTableViewCell.swift */,
 				9D5E77A42A9FC4FA00286D13 /* PostsUIComposer.swift */,
 			);
 			path = PostsViewController;
@@ -124,6 +138,26 @@
 				9D5E77B12A9FE08800286D13 /* NetworkPostsResponse.swift */,
 			);
 			path = NetworkPostsService;
+			sourceTree = "<group>";
+		};
+		9DD119A92AA1E77400E224EB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9DD119AA2AA1E78000E224EB /* Extensions */,
+				9DD119B12AA1EB2700E224EB /* Colors.swift */,
+				9DD119B32AA1EBDA00E224EB /* Images.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9DD119AA2AA1E78000E224EB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9DD119AB2AA1E7D100E224EB /* UITableViewCell+Extension.swift */,
+				9DD119AD2AA1E7F200E224EB /* UIImage+Extension.swift */,
+				9DD119AF2AA1E80A00E224EB /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,11 +241,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D5E77AC2A9FDCB900286D13 /* NetworkPostsService.swift in Sources */,
+				9DD119AE2AA1E7F200E224EB /* UIImage+Extension.swift in Sources */,
 				9D5E77A72A9FC53800286D13 /* PostsViewController.swift in Sources */,
+				9DD119B42AA1EBDA00E224EB /* Images.swift in Sources */,
 				9D5E77AE2A9FDCD000286D13 /* PostsService.swift in Sources */,
+				9DD119AC2AA1E7D100E224EB /* UITableViewCell+Extension.swift in Sources */,
+				9DD119A82AA1E76500E224EB /* PostsTableViewCell.swift in Sources */,
 				9D5E77B02A9FDCEB00286D13 /* PostModel.swift in Sources */,
 				9D5E779E2A9FC43F00286D13 /* Router.swift in Sources */,
 				9D5E77A32A9FC4EB00286D13 /* PostsViewModel.swift in Sources */,
+				9DD119B22AA1EB2700E224EB /* Colors.swift in Sources */,
+				9DD119B02AA1E80A00E224EB /* UIColor+Extension.swift in Sources */,
 				9D5E77B22A9FE08800286D13 /* NetworkPostsResponse.swift in Sources */,
 				9D5E77A52A9FC4FA00286D13 /* PostsUIComposer.swift in Sources */,
 				9D5E77812A9FA61200286D13 /* AppDelegate.swift in Sources */,

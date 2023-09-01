@@ -10,7 +10,8 @@ import UIKit
 enum PostsUIComposer {
     
     static func build(router: Router) -> UIViewController {
-        let viewModel = PostsViewModel()
+        let service = NetworkPostsService()
+        let viewModel = PostsViewModel(postsService: service)
         return PostsViewController(router: router, viewModel: viewModel)
     }
 }

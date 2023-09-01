@@ -19,29 +19,15 @@ struct NetworkPostsService: PostsService {
                     let posts = try JSONDecoder().decode(NetworkPostsResponse.self, from: response.data)
                     let postsResponse = posts.posts
                     print(postsResponse)
+                    completion(.success(postsResponse))
                 } catch {
                     print(error)
+                    completion(.failure(error))
                 }
             case let .failure(error):
                 print(error)
+                completion(.failure(error))
             }
-    }
-        
-        
-        
-        //        provider.request(.posts) { result in
-        //            switch result {
-        //            case .success(let result):
-        //                do {
-        //                    let result = try JSONDecoder().decode(NetworkPostsResponse.self, from: result.data)
-        //                    let buissnesModel = result.result.map { model in PostsModel(from: model as! Decoder) }
-        //                    completion(.success(buissnesModel))
-        //                } catch {
-        //                    completion(.failure(error))
-        //                }
-        //            case .failure(let error):
-        //                completion(.failure(error))
-        //            }
-        //        }
+        }
     }
 }

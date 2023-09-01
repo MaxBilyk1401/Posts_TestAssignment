@@ -9,14 +9,26 @@ import Foundation
 
 struct PostModel: Decodable {
     let postId: Int
-    let timeshamp: Int
+    let timeshamp: Date
     let title: String
     let previewText: String
-    let likesCpunt: Int
+    let likesCount: Int
     
     enum CodingKeys: String, CodingKey {
         case postId, timeshamp, title
         case previewText = "preview_text"
-        case likesCpunt = "likes_count"
+        case likesCount = "likes_count"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        postId = try container.decode(Int.self, forKey: .postId)
+        title = try container.decode(String.self, forKey: .title)
+        previewText = try container.decode(String.self, forKey: .previewText)
+        likesCount = try container.decode(Int.self, forKey: .likesCount)
+        
+        let timestampValue = try container.decode(Int.self, forKey: .timeshamp)
+        timeshamp = Date(timeIntervalSince1970: TimeInterval(timestampValue))
     }
 }
