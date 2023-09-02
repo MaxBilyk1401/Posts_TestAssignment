@@ -9,9 +9,14 @@ import Foundation
 
 final class PostsViewModel {
     private let postsService: PostsService
+    
     var onLoading: ((Bool) -> Void)?
     var onLoadSuccess: (([PostModel]) -> Void)?
     var onFailure: ((String?) -> Void)?
+    
+    private var posts: [PostModel] = []
+    private var isSortDescendingByLike = false
+    private var isSortDescendingByDate = false
     
     init(postsService: PostsService) {
         self.postsService = postsService
@@ -26,11 +31,46 @@ final class PostsViewModel {
                 switch result {
                 case .success(let success):
                     self.onLoadSuccess?(success)
+                    self.posts = success
                 case .failure:
                     self.onFailure?("OK")
                 }
                 self.onLoading?(false)
             }
+        }
+    }
+    
+    func reloadFilterDataByLikesDescending() {
+        let results = sortPostsByLikesDescending(posts)
+        print("FilterDataByLikes \(results)")
+        onLoadSuccess?(results)
+    }
+    
+    func reloadFilterDataByTimestampDescending() {
+        let results = sortPostsByTimestampDescending(posts)
+        print("FilterDataByTimestamp \(results)")
+        onLoadSuccess?(results)
+    }
+    
+    
+    
+    private func sortPostsByLikesDescending(_ posts: [PostModel]) -> [PostModel] {
+        isSortDescendingByLike.toggle()
+        
+        if isSortDescendingByLike {
+            return posts.sorted { $0.likesCount > $1.likesCount }
+        } else {
+            return posts.sorted { $0.likesCount < $1.likesCount }
+        }
+    }
+    
+    private func sortPostsByTimestampDescending(_ posts: [PostModel]) -> [PostModel] {
+        isSortDescendingByDate.toggle()
+        
+        if isSortDescendingByDate {
+            return posts.sorted { $0.timeshamp > $1.timeshamp }
+        } else {
+            return posts.sorted { $0.timeshamp < $1.timeshamp }
         }
     }
 }

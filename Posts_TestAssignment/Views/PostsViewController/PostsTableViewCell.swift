@@ -13,7 +13,6 @@ final class PostsTableViewCell: UITableViewCell {
     
     var wrapView: UIView = {
         let view = UIView()
-        
         return view
     }()
     
@@ -124,7 +123,7 @@ final class PostsTableViewCell: UITableViewCell {
     private func setupWrapView() {
         wrapView.layer.cornerRadius = 8.0
         wrapView.layer.borderWidth = 0.50
-        wrapView.layer.borderColor = UIColor(hexString: Colors.plainText.name).cgColor
+        wrapView.layer.borderColor = UIColor(hexString: Colors.plainText.name).withAlphaComponent(0.3).cgColor
         wrapView.clipsToBounds = false
     }
     

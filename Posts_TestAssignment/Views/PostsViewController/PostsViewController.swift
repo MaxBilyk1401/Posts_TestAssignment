@@ -13,13 +13,33 @@ final class PostsViewController: UIViewController {
     private var router: Router
     private var viewModel: PostsViewModel!
     private var network = NetworkPostsService()
-    var openedTableCellList = Set<UUID>()
-    private let maximumHeight: CGFloat = 36.0
+    private var openedTableCellList = Set<UUID>()
+    private let maximumHeight: CGFloat = 42.0
+    private var isFilterViewHidden = true
     
-    var postsTableView: UITableView = {
+    private var mainStackView: UIStackView = {
+       let stack = UIStackView()
+        stack.spacing = 8.0
+        stack.axis = .vertical
+        stack.distribution = .fill
+        return stack
+    }()
+    
+    private var filterView: FilterView = {
+        let view = FilterView()
+        view.isHidden = true
+        view.frame = CGRect(x: 0, y: 0, width: 0, height: 48)
+        return view
+    }()
+    
+    private var postsTableView: UITableView = {
         let tableView = UITableView()
-        
         return tableView
+    }()
+    
+    private var addButton: UIBarButtonItem = {
+        let button = UIBarButtonItem()
+        return button
     }()
     
     init(router: Router, viewModel: PostsViewModel) {
@@ -37,10 +57,37 @@ final class PostsViewController: UIViewController {
         view.backgroundColor = .white
         title = "posts"
         setupLayout()
-        print(list)
-        setupTableView()
         bindOnViewModel()
+        setupTableView()
         viewModel.fetchData()
+        
+        filterView.onDateFilterButtonTapped = { [weak self] isDescending in
+            guard let self else { return }
+//            self?.list = []
+//            self.viewModel.reloadFilterDataByLikesDescending()
+            if isDescending {
+                self.viewModel.reloadFilterDataByLikesDescending()
+            } else {
+                self.viewModel.reloadFilterDataByLikesDescending()
+            }
+        }
+        
+        filterView.onLikeFilterButtonTapped = { [weak self] isDescending in
+            guard let self else { return }
+//            self?.list = []
+//            self.viewModel.reloadFilterDataByLikesDescending()
+            if isDescending {
+                self.viewModel.reloadFilterDataByTimestampDescending()
+            } else {
+                self.viewModel.reloadFilterDataByTimestampDescending()
+            }
+            
+        }
+        
+        view.bringSubviewToFront(filterView)
+        
+        addButton = UIBarButtonItem(title: "Додати", style: .plain, target: self, action: #selector(addButtonTapped))
+        navigationItem.rightBarButtonItem = addButton
     }
     
     private func bindOnViewModel() {
@@ -56,7 +103,6 @@ final class PostsViewController: UIViewController {
         viewModel.onLoadSuccess = { [weak self] list in
             guard let self else { return }
             self.list = list
-            print(list)
             postsTableView.reloadData()
         }
         
@@ -73,12 +119,30 @@ final class PostsViewController: UIViewController {
     }
     
     private func setupLayout() {
-        view.addSubview(postsTableView)
-        postsTableView.snp.makeConstraints { make in
+        view.addSubview(mainStackView)
+        mainStackView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview()
             make.bottom.equalTo(view.snp.bottom)
         }
+        
+        mainStackView.addArrangedSubview(filterView)
+        mainStackView.addArrangedSubview(postsTableView)
+        
+//        view.addSubview(filterView)
+//        filterView.snp.makeConstraints { make in
+//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+//            make.leading.equalToSuperview().offset(16.0)
+//            make.trailing.equalToSuperview().inset(16.0)
+//            make.height.equalTo(48.0)
+//        }
+//
+//        view.addSubview(postsTableView)
+//        postsTableView.snp.makeConstraints { make in
+//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+//            make.leading.trailing.equalToSuperview()
+//            make.bottom.equalTo(view.snp.bottom)
+//        }
     }
     
     private func setupTableView() {
@@ -87,7 +151,7 @@ final class PostsViewController: UIViewController {
         postsTableView.delegate = self
         postsTableView.register(PostsTableViewCell.self, forCellReuseIdentifier: PostsTableViewCell.identifier)
         postsTableView.rowHeight = UITableView.automaticDimension
-        postsTableView.estimatedRowHeight = 38.0
+        postsTableView.estimatedRowHeight = 42
         
         let controll = UIRefreshControl()
         controll.addTarget(self, action: #selector(onPostsLoading), for: .valueChanged)
@@ -97,6 +161,11 @@ final class PostsViewController: UIViewController {
     @objc private func onPostsLoading() {
         viewModel.fetchData()
     }
+    
+    @objc private func addButtonTapped() {
+        filterView.isHidden.toggle()
+    }
+    
 }
 
 extension PostsViewController: UITableViewDataSource {
@@ -109,7 +178,7 @@ extension PostsViewController: UITableViewDataSource {
         let list = list[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: PostsTableViewCell.identifier, for: indexPath) as! PostsTableViewCell
         
-        let previewLabelSize = list.previewText.height(withConstrainedWidth: tableView.frame.width - 32, font: .systemFont(ofSize: 16, weight: .regular))
+        let previewLabelSize = list.previewText.height(withConstrainedWidth: tableView.frame.width - 36, font: .systemFont(ofSize: 16, weight: .regular))
         
         let canBeExpanded = previewLabelSize >= maximumHeight
         let isExpanded = openedTableCellList.contains(list.id)
@@ -135,14 +204,14 @@ extension PostsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let list = list[indexPath.row]
         
-        let previewLabelSize = list.previewText.height(withConstrainedWidth: tableView.frame.width - 32, font: .systemFont(ofSize: 16, weight: .regular))
+        let previewLabelSize = list.previewText.height(withConstrainedWidth: tableView.frame.width - 36, font: .systemFont(ofSize: 16, weight: .regular))
         
         let canBeExpanded = previewLabelSize >= maximumHeight
         let isExpanded = openedTableCellList.contains(list.id)
         
-        let staticHeight: CGFloat = 4 + 8 + 8 + 8 + 8
-        let titleHeight: CGFloat = 48
-        let buttomHeight: CGFloat =  24
+        let staticHeight: CGFloat = 8 + 8 + 8 + 8 + 8
+        let titleHeight: CGFloat = 42
+        let buttomHeight: CGFloat = 18
         
         if canBeExpanded {
             if isExpanded {
@@ -158,6 +227,6 @@ extension PostsViewController: UITableViewDataSource {
 
 extension PostsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.reloadRows(at: [indexPath], with: .automatic)
+        //        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
