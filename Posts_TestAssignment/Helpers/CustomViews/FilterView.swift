@@ -8,12 +8,21 @@
 import UIKit
 import SnapKit
 
-class FilterView: UIView {
+final class FilterView: UIView {
     
     var onLikeFilterButtonTapped: ((Bool) -> Void)?
     var onDateFilterButtonTapped: ((Bool) -> Void)?
+    var onClearFilterButtonTapped: (() -> Void)?
     
-    var mainStackView: UIStackView = {
+    private var verticalStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 8.0
+        stack.distribution = .fillProportionally
+        return stack
+    }()
+    
+    private var horizontalStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.spacing = 8.0
@@ -21,7 +30,7 @@ class FilterView: UIView {
         return stack
     }()
     
-    var likeButton: UIButton =  {
+    private var likeButton: UIButton =  {
         let button = UIButton()
         button.setTitle("Filter by likes", for: .normal)
         button.tintColor = .white
@@ -31,13 +40,23 @@ class FilterView: UIView {
         return button
     }()
     
-    var dateButton: UIButton =  {
+     var dateButton: UIButton =  {
         let button = UIButton()
         button.setTitle("Filter by dates", for: .normal)
         button.tintColor = .white
         button.backgroundColor = .black
         button.layer.cornerRadius = 4.0
         button.addTarget(self, action: #selector(dateButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+     var clearButton: UIButton =  {
+        let button = UIButton()
+        button.setTitle("Clear", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .black
+        button.layer.cornerRadius = 4.0
+        button.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -52,16 +71,19 @@ class FilterView: UIView {
     }
     
     private func setupView() {
-        addSubview(mainStackView)
-        mainStackView.snp.makeConstraints { make in
+        addSubview(verticalStackView)
+        verticalStackView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview().offset(16.0)
             make.trailing.equalToSuperview().inset(16.0)
             make.bottom.equalToSuperview()
         }
         
-        mainStackView.addArrangedSubview(likeButton)
-        mainStackView.addArrangedSubview(dateButton)
+        horizontalStackView.addArrangedSubview(likeButton)
+        horizontalStackView.addArrangedSubview(dateButton)
+        
+        verticalStackView.addArrangedSubview(horizontalStackView)
+        verticalStackView.addArrangedSubview(clearButton)
     }
     
     
@@ -71,5 +93,9 @@ class FilterView: UIView {
     
     @objc private func dateButtonTapped() {
         onDateFilterButtonTapped?(false)
+    }
+    
+    @objc private func clearButtonTapped() {
+        onClearFilterButtonTapped?()
     }
 }

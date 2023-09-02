@@ -107,7 +107,7 @@ final class PostsTableViewCell: UITableViewCell {
         titleLabel.text = model.title
         previewLabel.text = model.previewText
         likeTitle.text = "\(model.likesCount)"
-        let formattedDate = model.timeshamp.getFormattedDate(format: "MMM d, h:mm a")
+        let formattedDate = model.timeshamp.getFormattedDate(format: "MM/dd/yyyy")
         timeTitle.text = "\(formattedDate)"
         expandButton.isHidden = !canBeExpanded
         

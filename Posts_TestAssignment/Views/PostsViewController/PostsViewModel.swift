@@ -50,7 +50,9 @@ final class PostsViewModel {
         onLoadSuccess?(results)
     }
     
-    
+    func clearFiltes() {
+        onLoadSuccess?(posts)
+    }
     
     private func sortPostsByLikesDescending(_ posts: [PostModel]) -> [PostModel] {
         isSortDescendingByLike.toggle()
@@ -70,5 +72,9 @@ final class PostsViewModel {
         } else {
             return posts.sorted { $0.timeshamp < $1.timeshamp }
         }
+    }
+    
+    private func clear() {
+        onLoadSuccess?(posts)
     }
 }

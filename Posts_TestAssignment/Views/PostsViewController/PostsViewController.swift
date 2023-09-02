@@ -28,7 +28,7 @@ final class PostsViewController: UIViewController {
     private var filterView: FilterView = {
         let view = FilterView()
         view.isHidden = true
-        view.frame = CGRect(x: 0, y: 0, width: 0, height: 48)
+        view.frame = CGRect(x: 0, y: 0, width: 0, height: 100)
         return view
     }()
     
@@ -61,31 +61,6 @@ final class PostsViewController: UIViewController {
         setupTableView()
         viewModel.fetchData()
         
-        filterView.onDateFilterButtonTapped = { [weak self] isDescending in
-            guard let self else { return }
-//            self?.list = []
-//            self.viewModel.reloadFilterDataByLikesDescending()
-            if isDescending {
-                self.viewModel.reloadFilterDataByLikesDescending()
-            } else {
-                self.viewModel.reloadFilterDataByLikesDescending()
-            }
-        }
-        
-        filterView.onLikeFilterButtonTapped = { [weak self] isDescending in
-            guard let self else { return }
-//            self?.list = []
-//            self.viewModel.reloadFilterDataByLikesDescending()
-            if isDescending {
-                self.viewModel.reloadFilterDataByTimestampDescending()
-            } else {
-                self.viewModel.reloadFilterDataByTimestampDescending()
-            }
-            
-        }
-        
-        view.bringSubviewToFront(filterView)
-        
         addButton = UIBarButtonItem(title: "Додати", style: .plain, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
     }
@@ -116,6 +91,29 @@ final class PostsViewController: UIViewController {
                                           style: .cancel))
             present(alert, animated: true)
         }
+        
+        filterView.onDateFilterButtonTapped = { [weak self] isDescending in
+            guard let self else { return }
+            if isDescending {
+                self.viewModel.reloadFilterDataByTimestampDescending()
+            } else {
+                self.viewModel.reloadFilterDataByTimestampDescending()
+            }
+        }
+        
+        filterView.onLikeFilterButtonTapped = { [weak self] isDescending in
+            guard let self else { return }
+            if isDescending {
+                self.viewModel.reloadFilterDataByLikesDescending()
+            } else {
+                self.viewModel.reloadFilterDataByLikesDescending()
+            }
+        }
+        
+        filterView.onClearFilterButtonTapped = { [weak self] in
+            guard let self else { return }
+            self.viewModel.clearFiltes()
+        }
     }
     
     private func setupLayout() {
@@ -128,21 +126,6 @@ final class PostsViewController: UIViewController {
         
         mainStackView.addArrangedSubview(filterView)
         mainStackView.addArrangedSubview(postsTableView)
-        
-//        view.addSubview(filterView)
-//        filterView.snp.makeConstraints { make in
-//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-//            make.leading.equalToSuperview().offset(16.0)
-//            make.trailing.equalToSuperview().inset(16.0)
-//            make.height.equalTo(48.0)
-//        }
-//
-//        view.addSubview(postsTableView)
-//        postsTableView.snp.makeConstraints { make in
-//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-//            make.leading.trailing.equalToSuperview()
-//            make.bottom.equalTo(view.snp.bottom)
-//        }
     }
     
     private func setupTableView() {
