@@ -42,13 +42,11 @@ final class PostsViewModel {
     
     func reloadFilterDataByLikesDescending() {
         let results = sortPostsByLikesDescending(posts)
-        print("FilterDataByLikes \(results)")
         onLoadSuccess?(results)
     }
     
     func reloadFilterDataByTimestampDescending() {
         let results = sortPostsByTimestampDescending(posts)
-        print("FilterDataByTimestamp \(results)")
         onLoadSuccess?(results)
     }
     
