@@ -30,13 +30,12 @@ final class FilterView: UIView {
         return stack
     }()
     
-    private var likeButton: UIButton =  {
+     var likeButton: UIButton =  {
         let button = UIButton()
         button.setTitle("Filter by likes", for: .normal)
         button.tintColor = .white
         button.backgroundColor = .black
         button.layer.cornerRadius = 4.0
-        button.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -46,7 +45,6 @@ final class FilterView: UIView {
         button.tintColor = .white
         button.backgroundColor = .black
         button.layer.cornerRadius = 4.0
-        button.addTarget(self, action: #selector(dateButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -56,18 +54,23 @@ final class FilterView: UIView {
         button.tintColor = .white
         button.backgroundColor = .black
         button.layer.cornerRadius = 4.0
-        button.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
         return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        setupTargets()
         self.setupView()
     }
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupTargets() {
+        likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
+        dateButton.addTarget(self, action: #selector(dateButtonTapped), for: .touchUpInside)
+        clearButton.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
     }
     
     private func setupView() {

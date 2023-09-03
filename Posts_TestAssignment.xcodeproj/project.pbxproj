@@ -21,7 +21,7 @@
 		9D5E77A92A9FD2D800286D13 /* LoadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77A82A9FD2D800286D13 /* LoadService.swift */; };
 		9D5E77AC2A9FDCB900286D13 /* NetworkPostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77AB2A9FDCB900286D13 /* NetworkPostsService.swift */; };
 		9D5E77AE2A9FDCD000286D13 /* PostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77AD2A9FDCD000286D13 /* PostsService.swift */; };
-		9D5E77B02A9FDCEB00286D13 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77AF2A9FDCEB00286D13 /* PostModel.swift */; };
+		9D5E77B02A9FDCEB00286D13 /* PostsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77AF2A9FDCEB00286D13 /* PostsModel.swift */; };
 		9D5E77B22A9FE08800286D13 /* NetworkPostsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5E77B12A9FE08800286D13 /* NetworkPostsResponse.swift */; };
 		9DD119A82AA1E76500E224EB /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119A72AA1E76500E224EB /* PostsTableViewCell.swift */; };
 		9DD119AC2AA1E7D100E224EB /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119AB2AA1E7D100E224EB /* UITableViewCell+Extension.swift */; };
@@ -33,6 +33,13 @@
 		9DD119B82AA21DBC00E224EB /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119B72AA21DBC00E224EB /* UILabel+Extension.swift */; };
 		9DD119BC2AA28D7000E224EB /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119BB2AA28D7000E224EB /* String+Extension.swift */; };
 		9DD119C12AA3CF2A00E224EB /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119C02AA3CF2A00E224EB /* FilterView.swift */; };
+		9DD119C52AA522F800E224EB /* SelectedPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119C42AA522F800E224EB /* SelectedPostViewController.swift */; };
+		9DD119C72AA5230300E224EB /* SelectedPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119C62AA5230300E224EB /* SelectedPostViewModel.swift */; };
+		9DD119C92AA5231100E224EB /* SelectedPostUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119C82AA5231100E224EB /* SelectedPostUIComposer.swift */; };
+		9DD119CB2AA5258F00E224EB /* SelectedPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119CA2AA5258F00E224EB /* SelectedPostModel.swift */; };
+		9DD119D22AA52CFA00E224EB /* SelectedPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119D12AA52CFA00E224EB /* SelectedPostService.swift */; };
+		9DD119D42AA52D8E00E224EB /* NetworkSelectedPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119D32AA52D8E00E224EB /* NetworkSelectedPostResponse.swift */; };
+		9DD119D62AA5323900E224EB /* NetworkSelectedPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119D52AA5323900E224EB /* NetworkSelectedPostService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +56,7 @@
 		9D5E77A82A9FD2D800286D13 /* LoadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadService.swift; sourceTree = "<group>"; };
 		9D5E77AB2A9FDCB900286D13 /* NetworkPostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPostsService.swift; sourceTree = "<group>"; };
 		9D5E77AD2A9FDCD000286D13 /* PostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
-		9D5E77AF2A9FDCEB00286D13 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		9D5E77AF2A9FDCEB00286D13 /* PostsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsModel.swift; sourceTree = "<group>"; };
 		9D5E77B12A9FE08800286D13 /* NetworkPostsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPostsResponse.swift; sourceTree = "<group>"; };
 		9DD119A72AA1E76500E224EB /* PostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableViewCell.swift; sourceTree = "<group>"; };
 		9DD119AB2AA1E7D100E224EB /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
@@ -61,6 +68,13 @@
 		9DD119B72AA21DBC00E224EB /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		9DD119BB2AA28D7000E224EB /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		9DD119C02AA3CF2A00E224EB /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		9DD119C42AA522F800E224EB /* SelectedPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPostViewController.swift; sourceTree = "<group>"; };
+		9DD119C62AA5230300E224EB /* SelectedPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPostViewModel.swift; sourceTree = "<group>"; };
+		9DD119C82AA5231100E224EB /* SelectedPostUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPostUIComposer.swift; sourceTree = "<group>"; };
+		9DD119CA2AA5258F00E224EB /* SelectedPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPostModel.swift; sourceTree = "<group>"; };
+		9DD119D12AA52CFA00E224EB /* SelectedPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPostService.swift; sourceTree = "<group>"; };
+		9DD119D32AA52D8E00E224EB /* NetworkSelectedPostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSelectedPostResponse.swift; sourceTree = "<group>"; };
+		9DD119D52AA5323900E224EB /* NetworkSelectedPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSelectedPostService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +126,8 @@
 		9D5E779F2A9FC49200286D13 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9D5E77A12A9FC4D400286D13 /* PostsViewController */,
+				9DD119C32AA5223700E224EB /* SelectedPost */,
+				9D5E77A12A9FC4D400286D13 /* Posts */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -126,7 +141,7 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		9D5E77A12A9FC4D400286D13 /* PostsViewController */ = {
+		9D5E77A12A9FC4D400286D13 /* Posts */ = {
 			isa = PBXGroup;
 			children = (
 				9D5E77A22A9FC4EB00286D13 /* PostsViewModel.swift */,
@@ -134,16 +149,14 @@
 				9DD119A72AA1E76500E224EB /* PostsTableViewCell.swift */,
 				9D5E77A42A9FC4FA00286D13 /* PostsUIComposer.swift */,
 			);
-			path = PostsViewController;
+			path = Posts;
 			sourceTree = "<group>";
 		};
 		9D5E77AA2A9FDC9400286D13 /* NetworkPostsService */ = {
 			isa = PBXGroup;
 			children = (
-				9D5E77AB2A9FDCB900286D13 /* NetworkPostsService.swift */,
-				9D5E77AD2A9FDCD000286D13 /* PostsService.swift */,
-				9D5E77AF2A9FDCEB00286D13 /* PostModel.swift */,
-				9D5E77B12A9FE08800286D13 /* NetworkPostsResponse.swift */,
+				9DD119CE2AA52C4A00E224EB /* SelectedPost */,
+				9DD119CD2AA52C3E00E224EB /* Posts */,
 			);
 			path = NetworkPostsService;
 			sourceTree = "<group>";
@@ -178,6 +191,38 @@
 				9DD119C02AA3CF2A00E224EB /* FilterView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		9DD119C32AA5223700E224EB /* SelectedPost */ = {
+			isa = PBXGroup;
+			children = (
+				9DD119C42AA522F800E224EB /* SelectedPostViewController.swift */,
+				9DD119C62AA5230300E224EB /* SelectedPostViewModel.swift */,
+				9DD119C82AA5231100E224EB /* SelectedPostUIComposer.swift */,
+			);
+			path = SelectedPost;
+			sourceTree = "<group>";
+		};
+		9DD119CD2AA52C3E00E224EB /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				9D5E77AB2A9FDCB900286D13 /* NetworkPostsService.swift */,
+				9D5E77B12A9FE08800286D13 /* NetworkPostsResponse.swift */,
+				9D5E77AD2A9FDCD000286D13 /* PostsService.swift */,
+				9D5E77AF2A9FDCEB00286D13 /* PostsModel.swift */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
+		9DD119CE2AA52C4A00E224EB /* SelectedPost */ = {
+			isa = PBXGroup;
+			children = (
+				9DD119CA2AA5258F00E224EB /* SelectedPostModel.swift */,
+				9DD119D12AA52CFA00E224EB /* SelectedPostService.swift */,
+				9DD119D52AA5323900E224EB /* NetworkSelectedPostService.swift */,
+				9DD119D32AA52D8E00E224EB /* NetworkSelectedPostResponse.swift */,
+			);
+			path = SelectedPost;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,12 +308,16 @@
 				9D5E77AC2A9FDCB900286D13 /* NetworkPostsService.swift in Sources */,
 				9DD119AE2AA1E7F200E224EB /* UIImage+Extension.swift in Sources */,
 				9D5E77A72A9FC53800286D13 /* PostsViewController.swift in Sources */,
+				9DD119D42AA52D8E00E224EB /* NetworkSelectedPostResponse.swift in Sources */,
 				9DD119B42AA1EBDA00E224EB /* Images.swift in Sources */,
+				9DD119D22AA52CFA00E224EB /* SelectedPostService.swift in Sources */,
+				9DD119D62AA5323900E224EB /* NetworkSelectedPostService.swift in Sources */,
 				9D5E77AE2A9FDCD000286D13 /* PostsService.swift in Sources */,
 				9DD119AC2AA1E7D100E224EB /* UITableViewCell+Extension.swift in Sources */,
 				9DD119A82AA1E76500E224EB /* PostsTableViewCell.swift in Sources */,
 				9DD119C12AA3CF2A00E224EB /* FilterView.swift in Sources */,
-				9D5E77B02A9FDCEB00286D13 /* PostModel.swift in Sources */,
+				9DD119C52AA522F800E224EB /* SelectedPostViewController.swift in Sources */,
+				9D5E77B02A9FDCEB00286D13 /* PostsModel.swift in Sources */,
 				9DD119BC2AA28D7000E224EB /* String+Extension.swift in Sources */,
 				9DD119B82AA21DBC00E224EB /* UILabel+Extension.swift in Sources */,
 				9D5E779E2A9FC43F00286D13 /* Router.swift in Sources */,
@@ -279,7 +328,10 @@
 				9D5E77A52A9FC4FA00286D13 /* PostsUIComposer.swift in Sources */,
 				9DD119B62AA21D4800E224EB /* DateFormatter+Extension.swift in Sources */,
 				9D5E77812A9FA61200286D13 /* AppDelegate.swift in Sources */,
+				9DD119CB2AA5258F00E224EB /* SelectedPostModel.swift in Sources */,
+				9DD119C92AA5231100E224EB /* SelectedPostUIComposer.swift in Sources */,
 				9D5E77A92A9FD2D800286D13 /* LoadService.swift in Sources */,
+				9DD119C72AA5230300E224EB /* SelectedPostViewModel.swift in Sources */,
 				9D5E77832A9FA61200286D13 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

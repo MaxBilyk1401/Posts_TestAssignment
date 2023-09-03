@@ -18,4 +18,8 @@ final class Router {
     func showPostsScreenAsRootController() {
         navigationController?.setViewControllers([PostsUIComposer.build(router: self)], animated: true)
     }
+    
+    func showSelectedPostViewController(postId: String) {
+        navigationController?.pushViewController(SelectedPostUIComposer.build(router: self, postId: postId), animated: true)
+    }
 }

@@ -9,16 +9,16 @@ import UIKit
 import SnapKit
 
 final class PostsViewController: UIViewController {
-    private var list: [PostModel] = []
+    private var list: [PostsModel] = []
     private var router: Router
     private var viewModel: PostsViewModel!
-    private var network = NetworkPostsService()
+//    private var network = NetworkPostsService()
     private var openedTableCellList = Set<UUID>()
-    private let maximumHeight: CGFloat = 42.0
+    private let maximumHeight: CGFloat = 48.0
     private var isFilterViewHidden = true
     
     private var mainStackView: UIStackView = {
-       let stack = UIStackView()
+        let stack = UIStackView()
         stack.spacing = 8.0
         stack.axis = .vertical
         stack.distribution = .fill
@@ -28,7 +28,6 @@ final class PostsViewController: UIViewController {
     private var filterView: FilterView = {
         let view = FilterView()
         view.isHidden = true
-        view.frame = CGRect(x: 0, y: 0, width: 0, height: 100)
         return view
     }()
     
@@ -60,9 +59,7 @@ final class PostsViewController: UIViewController {
         bindOnViewModel()
         setupTableView()
         viewModel.fetchData()
-        
-        addButton = UIBarButtonItem(title: "Додати", style: .plain, target: self, action: #selector(addButtonTapped))
-        navigationItem.rightBarButtonItem = addButton
+        setupFilterButton()
     }
     
     private func bindOnViewModel() {
@@ -128,6 +125,12 @@ final class PostsViewController: UIViewController {
         mainStackView.addArrangedSubview(postsTableView)
     }
     
+    private func setupFilterButton() {
+        addButton = UIBarButtonItem(image: UIImage(named: "filter"), style: .plain, target: self, action: #selector(addButtonTapped))
+        addButton.tintColor = .black
+        navigationItem.rightBarButtonItem = addButton
+    }
+    
     private func setupTableView() {
         postsTableView.separatorStyle = .none
         postsTableView.dataSource = self
@@ -187,14 +190,14 @@ extension PostsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let list = list[indexPath.row]
         
-        let previewLabelSize = list.previewText.height(withConstrainedWidth: tableView.frame.width - 36, font: .systemFont(ofSize: 16, weight: .regular))
+        let previewLabelSize = list.previewText.height(withConstrainedWidth: tableView.frame.width - 32, font: .systemFont(ofSize: 16, weight: .regular))
+        let titleHeight = list.title.height(withConstrainedWidth: tableView.frame.width - 32, font: .systemFont(ofSize: 18, weight: .medium))
         
         let canBeExpanded = previewLabelSize >= maximumHeight
         let isExpanded = openedTableCellList.contains(list.id)
         
         let staticHeight: CGFloat = 8 + 8 + 8 + 8 + 32
-        let titleHeight: CGFloat = 42
-        let buttomHeight: CGFloat = 18
+        let buttomHeight: CGFloat = 24
         
         if canBeExpanded {
             if isExpanded {
@@ -210,6 +213,8 @@ extension PostsViewController: UITableViewDataSource {
 
 extension PostsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        tableView.reloadRows(at: [indexPath], with: .automatic)
+        let selectedPost = list[indexPath.row].postId
+        print(selectedPost)
+        router.showSelectedPostViewController(postId: "\(selectedPost)")
     }
 }

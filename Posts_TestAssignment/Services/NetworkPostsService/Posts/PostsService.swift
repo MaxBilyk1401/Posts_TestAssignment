@@ -8,5 +8,5 @@
 import Foundation
 
 protocol PostsService {
-    func loadData(completion: @escaping (Result<[PostModel], Error>) -> Void)
+    func loadData(completion: @escaping (Result<[PostsModel], Error>) -> Void)
 }

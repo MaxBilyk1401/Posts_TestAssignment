@@ -26,7 +26,7 @@ extension LoadService: TargetType {
         case .posts:
             return "/main.json"
         case .selectedPost(let postId):
-            return "posts/\(postId).json"
+            return "/posts/\(postId).json"
         }
     }
     

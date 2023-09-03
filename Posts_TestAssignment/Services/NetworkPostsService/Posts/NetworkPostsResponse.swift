@@ -8,5 +8,5 @@
 import Foundation
 
 struct NetworkPostsResponse: Decodable {
-    let posts: [PostModel]
+    let posts: [PostsModel]
 }

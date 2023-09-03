@@ -11,10 +11,10 @@ final class PostsViewModel {
     private let postsService: PostsService
     
     var onLoading: ((Bool) -> Void)?
-    var onLoadSuccess: (([PostModel]) -> Void)?
+    var onLoadSuccess: (([PostsModel]) -> Void)?
     var onFailure: ((String?) -> Void)?
     
-    private var posts: [PostModel] = []
+    private var posts: [PostsModel] = []
     private var isSortDescendingByLike = false
     private var isSortDescendingByDate = false
     
@@ -41,12 +41,12 @@ final class PostsViewModel {
     }
     
     func reloadSortingDataByLikes() {
-        let results = sortPostsByLikesDescending(posts)
+        let results = sortPostsByLikes(posts)
         onLoadSuccess?(results)
     }
     
     func reloadSortingDataByTimestamp() {
-        let results = sortPostsByTimestampDescending(posts)
+        let results = sortPostsByTimestamp(posts)
         onLoadSuccess?(results)
     }
     
@@ -54,7 +54,7 @@ final class PostsViewModel {
         onLoadSuccess?(posts)
     }
     
-    private func sortPostsByLikesDescending(_ posts: [PostModel]) -> [PostModel] {
+    private func sortPostsByLikes(_ posts: [PostsModel]) -> [PostsModel] {
         isSortDescendingByLike.toggle()
         
         if isSortDescendingByLike {
@@ -64,7 +64,7 @@ final class PostsViewModel {
         }
     }
     
-    private func sortPostsByTimestampDescending(_ posts: [PostModel]) -> [PostModel] {
+    private func sortPostsByTimestamp(_ posts: [PostsModel]) -> [PostsModel] {
         isSortDescendingByDate.toggle()
         
         if isSortDescendingByDate {
