@@ -95,18 +95,18 @@ final class PostsViewController: UIViewController {
         filterView.onDateFilterButtonTapped = { [weak self] isDescending in
             guard let self else { return }
             if isDescending {
-                self.viewModel.reloadFilterDataByTimestampDescending()
+                self.viewModel.reloadSortingDataByTimestamp()
             } else {
-                self.viewModel.reloadFilterDataByTimestampDescending()
+                self.viewModel.reloadSortingDataByTimestamp()
             }
         }
         
         filterView.onLikeFilterButtonTapped = { [weak self] isDescending in
             guard let self else { return }
             if isDescending {
-                self.viewModel.reloadFilterDataByLikesDescending()
+                self.viewModel.reloadSortingDataByLikes()
             } else {
-                self.viewModel.reloadFilterDataByLikesDescending()
+                self.viewModel.reloadSortingDataByLikes()
             }
         }
         
@@ -134,7 +134,7 @@ final class PostsViewController: UIViewController {
         postsTableView.delegate = self
         postsTableView.register(PostsTableViewCell.self, forCellReuseIdentifier: PostsTableViewCell.identifier)
         postsTableView.rowHeight = UITableView.automaticDimension
-        postsTableView.estimatedRowHeight = 42
+        postsTableView.estimatedRowHeight = 48
         
         let controll = UIRefreshControl()
         controll.addTarget(self, action: #selector(onPostsLoading), for: .valueChanged)
@@ -192,7 +192,7 @@ extension PostsViewController: UITableViewDataSource {
         let canBeExpanded = previewLabelSize >= maximumHeight
         let isExpanded = openedTableCellList.contains(list.id)
         
-        let staticHeight: CGFloat = 8 + 8 + 8 + 8 + 8
+        let staticHeight: CGFloat = 8 + 8 + 8 + 8 + 32
         let titleHeight: CGFloat = 42
         let buttomHeight: CGFloat = 18
         
