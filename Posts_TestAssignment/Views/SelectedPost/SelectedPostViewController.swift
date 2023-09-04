@@ -17,9 +17,7 @@ final class SelectedPostViewController: UIViewController {
        let scroll = UIScrollView()
         scroll.showsVerticalScrollIndicator = false
         scroll.isScrollEnabled = true
-        let controll = UIRefreshControl()
-        controll.addTarget(self, action: #selector(onSelectedPostLoading), for: .valueChanged)
-        scroll.refreshControl = controll
+        
         return scroll
     }()
     
@@ -32,7 +30,7 @@ final class SelectedPostViewController: UIViewController {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .medium)
         label.textColor = .black
-        label.numberOfLines = .min
+        label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()
@@ -145,22 +143,19 @@ final class SelectedPostViewController: UIViewController {
     
     private func updateUI() {
         if let post = selectedPost {
-//            titleLabel.text = post.title
             postImage.setImage(with: post.postImage)
             textLabel.text = post.text
             likeLabel.text = "\(post.likesCount)"
             
             let formattedDate = post.timeshamp.getFormattedDate(format: "MM/dd/yyyy")
             dateLabel.text = "\(formattedDate)"
+            titleLabel.text = post.title
+
+            self.navigationItem.titleView = titleLabel
             
-            let titleAttribute: [NSAttributedString.Key: Any] = [
-                .font: UIFont.systemFont(ofSize: 18, weight: .medium),
-                .foregroundColor: UIColor.black
-            ]
-            
-            navigationController?.navigationBar.titleTextAttributes = titleAttribute
-            title = post.title
-            
+            let controll = UIRefreshControl()
+            controll.addTarget(self, action: #selector(onSelectedPostLoading), for: .valueChanged)
+            scrollView.refreshControl = controll
         }
     }
     
@@ -216,8 +211,6 @@ final class SelectedPostViewController: UIViewController {
         }
         dateStackView.addArrangedSubview(calendarImage)
         dateStackView.addArrangedSubview(dateLabel)
-        
-        
     }
     
     @objc private func onSelectedPostLoading() {

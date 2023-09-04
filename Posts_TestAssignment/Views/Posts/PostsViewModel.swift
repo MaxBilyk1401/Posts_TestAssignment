@@ -41,12 +41,12 @@ final class PostsViewModel {
     }
     
     func reloadSortingDataByLikes() {
-        let results = sortPostsByLikes(posts)
+        var results = sortPostsByLikes(posts)
         onLoadSuccess?(results)
     }
     
     func reloadSortingDataByTimestamp() {
-        let results = sortPostsByTimestamp(posts)
+        var results = sortPostsByTimestamp(posts)
         onLoadSuccess?(results)
     }
     

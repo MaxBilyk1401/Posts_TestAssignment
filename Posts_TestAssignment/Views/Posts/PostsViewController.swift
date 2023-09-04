@@ -91,21 +91,13 @@ final class PostsViewController: UIViewController {
         }
         
         filterView.onDateFilterButtonTapped = { [weak self] isDescending in
-            guard let self else { return }
-            if isDescending {
-                self.viewModel.reloadSortingDataByTimestamp()
-            } else {
-                self.viewModel.reloadSortingDataByTimestamp()
-            }
+            guard let self = self else { return }
+            self.viewModel.reloadSortingDataByTimestamp()
         }
         
         filterView.onLikeFilterButtonTapped = { [weak self] isDescending in
             guard let self else { return }
-            if isDescending {
-                self.viewModel.reloadSortingDataByLikes()
-            } else {
-                self.viewModel.reloadSortingDataByLikes()
-            }
+            self.viewModel.reloadSortingDataByLikes()
         }
         
         filterView.onClearFilterButtonTapped = { [weak self] in

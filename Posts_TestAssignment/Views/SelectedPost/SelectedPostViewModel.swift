@@ -29,8 +29,7 @@ final class SelectedPostViewModel {
                 switch result {
                 case .success(let success):
                     self.onLoadSuccess?(success)
-                    print(success)
-                case .failure(let error):
+                case .failure:
                     self.onFailure?("OK")
                 }
                 self.onLoading?(false)
