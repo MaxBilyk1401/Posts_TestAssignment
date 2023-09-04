@@ -18,7 +18,7 @@ struct NetworkSelectedPostService: SelectedPostService {
                 do {
                     let posts = try JSONDecoder().decode(NetworkSelectedPostsResponse.self, from: response.data)
                     let response = posts.post
-                    print(response)
+//                    print(response)
                     completion(.success(response))
                 } catch {
                     completion(.failure(error))

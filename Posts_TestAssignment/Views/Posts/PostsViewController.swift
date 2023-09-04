@@ -12,7 +12,6 @@ final class PostsViewController: UIViewController {
     private var list: [PostsModel] = []
     private var router: Router
     private var viewModel: PostsViewModel!
-//    private var network = NetworkPostsService()
     private var openedTableCellList = Set<UUID>()
     private let maximumHeight: CGFloat = 48.0
     private var isFilterViewHidden = true
@@ -54,12 +53,14 @@ final class PostsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        title = "posts"
+        title = "Posts"
         setupLayout()
         bindOnViewModel()
         setupTableView()
         viewModel.fetchData()
         setupFilterButton()
+        
+        navigationController?.navigationBar.tintColor = .black
     }
     
     private func bindOnViewModel() {

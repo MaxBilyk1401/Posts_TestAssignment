@@ -23,4 +23,17 @@ struct SelectedPostModel: Decodable {
         case postImage
         case likesCount = "likes_count"
     }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.postId = try container.decode(Int.self, forKey: .postId)
+        self.title = try container.decode(String.self, forKey: .title)
+        self.text = try container.decode(String.self, forKey: .text)
+        self.postImage = try container.decode(String.self, forKey: .postImage)
+        self.likesCount = try container.decode(Int.self, forKey: .likesCount)
+        
+        let timeshampValue = try container.decode(Int.self, forKey: .timeshamp)
+        timeshamp = Date(timeIntervalSince1970: TimeInterval(timeshampValue))
+    }
 }

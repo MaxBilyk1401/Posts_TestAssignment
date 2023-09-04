@@ -40,6 +40,7 @@
 		9DD119D22AA52CFA00E224EB /* SelectedPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119D12AA52CFA00E224EB /* SelectedPostService.swift */; };
 		9DD119D42AA52D8E00E224EB /* NetworkSelectedPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119D32AA52D8E00E224EB /* NetworkSelectedPostResponse.swift */; };
 		9DD119D62AA5323900E224EB /* NetworkSelectedPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119D52AA5323900E224EB /* NetworkSelectedPostService.swift */; };
+		9DD119D82AA6081900E224EB /* NavigationTitle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD119D72AA6081900E224EB /* NavigationTitle+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		9DD119D12AA52CFA00E224EB /* SelectedPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPostService.swift; sourceTree = "<group>"; };
 		9DD119D32AA52D8E00E224EB /* NetworkSelectedPostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSelectedPostResponse.swift; sourceTree = "<group>"; };
 		9DD119D52AA5323900E224EB /* NetworkSelectedPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSelectedPostService.swift; sourceTree = "<group>"; };
+		9DD119D72AA6081900E224EB /* NavigationTitle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationTitle+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				9DD119B52AA21D4800E224EB /* DateFormatter+Extension.swift */,
 				9DD119B72AA21DBC00E224EB /* UILabel+Extension.swift */,
 				9DD119BB2AA28D7000E224EB /* String+Extension.swift */,
+				9DD119D72AA6081900E224EB /* NavigationTitle+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				9DD119A82AA1E76500E224EB /* PostsTableViewCell.swift in Sources */,
 				9DD119C12AA3CF2A00E224EB /* FilterView.swift in Sources */,
 				9DD119C52AA522F800E224EB /* SelectedPostViewController.swift in Sources */,
+				9DD119D82AA6081900E224EB /* NavigationTitle+Extension.swift in Sources */,
 				9D5E77B02A9FDCEB00286D13 /* PostsModel.swift in Sources */,
 				9DD119BC2AA28D7000E224EB /* String+Extension.swift in Sources */,
 				9DD119B82AA21DBC00E224EB /* UILabel+Extension.swift in Sources */,
